@@ -14,8 +14,8 @@ class ValidateEmailServiceTest {
         String emailInvalid = "nifr@dk";
         String isThisValid = ".@";
         //Act
-        boolean result1 = service.isEmailValid(emailValid);
-        boolean result2 = service.isEmailValid(emailInvalid);
+        boolean result1 = service.isEmailValid();
+        boolean result2 = service.isEmailValid();
 
         //Assert
         assertEquals(true,result1);
