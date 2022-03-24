@@ -25,8 +25,9 @@ public class IndexController {
             System.out.println(dataFromForm.getParameter("email"));
             emailsToSQL.insertEmailToDB(email);
             return "get-free-money-success";
-        } else {
+        } else if (!validateEmailService.isEmailValid(email)){
             System.out.println("Invalid email");
+            return "error";
         }
         return "redirect:/";
 
@@ -34,6 +35,11 @@ public class IndexController {
     @GetMapping("/get-free-money-success")
     public String getMoney() {
         return "get-free-money-success";
+    }
+
+    @GetMapping("/error")
+    public String error(){
+        return error();
     }
 
 }
